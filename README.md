@@ -42,7 +42,17 @@ docker run -p 8000:8000 --name event-manager event-manager
 
 After that, the application will be available at [http://localhost:8000](http://localhost:8000).
 
-### 3. Create Superuser 
+### 3. Database Setup
+
+By default, the app uses **SQLite** for the database, so there is no need for complex setup. To apply migrations and initialize the database, run:
+
+```bash
+docker exec -it event-manager python manage.py makemigrations
+docker exec -it event-manager python manage.py makemigrations events
+docker exec -it event-manager python manage.py migrate
+```
+
+### 4. Create Superuser 
 
 ```bash
 docker exec -it event-manager python manage.py createsuperuser
@@ -50,16 +60,8 @@ docker exec -it event-manager python manage.py createsuperuser
 
 Follow the prompts to set a username, email, and password for the superuser. 
 
-### 4. Database Setup
+Now let`s move to [Event Management Functionality](#event-management-system-detailed-functionality)
 
-By default, the app uses **SQLite** for the database, so there is no need for complex setup. To apply migrations and initialize the database, run:
-
-```bash
-docker exec -it event-manager python manage.py makemigrations
-docker exec -it event-manager python manage.py migrate
-```
-
-### 5. Stopping the Docker Container
 
 To stop the running container:
 

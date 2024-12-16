@@ -36,8 +36,8 @@ cd EventManager
 The application is set up with Docker to simplify the deployment. Run the following command to build and start the container:
 
 ```bash
-docker build -t EventManager .
-docker run -p 8000:8000 --name EventManager EventManager
+docker build -t event-manager .
+docker run -p 8000:8000 --name event-manager event-manager
 ```
 
 After that, the application will be available at [http://localhost:8000](http://localhost:8000).
@@ -45,7 +45,7 @@ After that, the application will be available at [http://localhost:8000](http://
 ### 3. Create Superuser 
 
 ```bash
-docker exec -it EventManager python manage.py createsuperuser
+docker exec -it event-manager python manage.py createsuperuser
 ```
 
 Follow the prompts to set a username, email, and password for the superuser. 
@@ -55,8 +55,8 @@ Follow the prompts to set a username, email, and password for the superuser.
 By default, the app uses **SQLite** for the database, so there is no need for complex setup. To apply migrations and initialize the database, run:
 
 ```bash
-docker exec -it EventManager python manage.py makemigrations
-docker exec -it EventManager python manage.py migrate
+docker exec -it event-manager python manage.py makemigrations
+docker exec -it event-manager python manage.py migrate
 ```
 
 ### 5. Stopping the Docker Container
@@ -64,7 +64,7 @@ docker exec -it EventManager python manage.py migrate
 To stop the running container:
 
 ```bash
-docker stop EventManager
+docker stop event-manager
 ```
 
 ## Installation without Docker

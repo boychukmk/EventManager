@@ -1,4 +1,11 @@
 # Django Rest Event Manager 
+```
+✅ CRUD with UI
+✅ CRUD via API with access tokens
+✅ User Registration and Authentication.
+✅ Event Registration with email notifications
+✅ Event Search by location, name or description
+```
 
 ---
 
@@ -165,8 +172,6 @@ You can use app as regular web app, or via API
   ```
 
 ---
-
-### User Registration and Authentication
 
 
 ### Admin Interface

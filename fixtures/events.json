@@ -1,0 +1,112 @@
+[
+    {
+        "model": "events.event",
+        "pk": 1,
+        "fields": {
+            "title": "Конференція Django",
+            "description": "Подія для розробників на Django.",
+            "date": "2025-09-10",
+            "location": "Київ",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 2,
+        "fields": {
+            "title": "Вебінар з Python",
+            "description": "Онлайн-вебінар для вивчення основ Python.",
+            "date": "2025-10-05",
+            "location": "Київ",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 3,
+        "fields": {
+            "title": "Хакатон у Львові",
+            "description": "Змагання програмістів у Львові.",
+            "date": "2025-11-12",
+            "location": "Львів",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 4,
+        "fields": {
+            "title": "Виставка ІТ-стартапів",
+            "description": "Можливість представити свої ІТ-стартапи.",
+            "date": "2025-12-01",
+            "location": "Одеса",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 5,
+        "fields": {
+            "title": "Семінар з кібербезпеки",
+            "description": "Обговорення актуальних загроз та захисту.",
+            "date": "2025-05-15",
+            "location": "Харків",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 6,
+        "fields": {
+            "title": "Майстер-клас з машинного навчання",
+            "description": "Практичний майстер-клас зі створення ML-моделей.",
+            "date": "2025-02-20",
+            "location": "Дніпро",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 7,
+        "fields": {
+            "title": "Форум штучного інтелекту",
+            "description": "Обговорення майбутнього AI.",
+            "date": "2025-03-10",
+            "location": "Запоріжжя",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 8,
+        "fields": {
+            "title": "Конференція з DevOps",
+            "description": "Досвід та кейси з впровадження DevOps.",
+            "date": "2025-04-05",
+            "location": "Чернігів",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 9,
+        "fields": {
+            "title": "ІТ-форум стартапів",
+            "description": "Зустріч з інвесторами та партнерами.",
+            "date": "2025-05-22",
+            "location": "Вінниця",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 10,
+        "fields": {
+            "title": "Workshop з веб-розробки",
+            "description": "Вивчення нових технологій у фронтенд-розробці.",
+            "date": "2025-06-15",
+            "location": "Полтава",
+            "organiser": 1
+        }
+    }
+]

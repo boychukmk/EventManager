@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Event{% endblock %}
+
+{% block content %}
+    <h2>{% if form.instance.pk %}Update{% else %}Create{% endif %} Event</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Update{% else %}Create{% endif %} Event</button>
+    </form>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        flatpickr(".datepicker", {
+            dateFormat: "Y-m-d",
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Event List{% endblock %}
+
+{% block content %}
+    <h2>Event List</h2>
+    <div class="event-list">
+        {% for event in events %}
+            <div class="event-item">
+                <h3>{{ event.title }}</h3>
+                <p><strong>Description:</strong> {{ event.description }}</p>
+                <p><strong>Date:</strong> {{ event.date }}</p>
+                <p><strong>Location:</strong> {{ event.location }}</p>
+                <p><strong>organiser:</strong> {{ event.organiser.username }}</p>
+                <p><strong>Attendees:</strong> {{ event.attendees.count }}</p>
+
+                {% if user in event.attendees.all %}
+                    <a href="#" class="btn registered">You are registered</a>
+                {% else %}
+                    <a href="{% url 'register_for_event' event.id %}" class="btn">Register</a>
+                {% endif %}
+
+                {% if user == event.organiser %}
+                    <a href="{% url 'edit_event' event.pk %}" class="btn edit">Edit</a>
+                    <a href="{% url 'delete_event' event.pk %}" class="btn delete">Delete</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

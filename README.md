@@ -139,7 +139,7 @@ You can use app as regular web app, or via API
   {
     "title": "Updated Event Title",
     "description": "Updated Description",
-    "date": "2024-12-31T20:00:00Z",
+    "date": "2024-12-31",
     "location": "Conference Hall B"
   }
   ```

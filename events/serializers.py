@@ -15,3 +15,4 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ['id', 'title', 'description', 'date', 'location', 'organiser']
+        read_only_fields = ['organiser', 'id']

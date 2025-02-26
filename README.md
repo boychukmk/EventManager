@@ -102,7 +102,7 @@ You can use app as regular web app, or via API
 #### 3. Create a new event
 - Requires authentication. Token should be provided in the header.
   ```
-  POST /api/events/create/
+  POST /api/events/
   ```
   Request Body:
   ```json
@@ -116,9 +116,9 @@ You can use app as regular web app, or via API
 
 - Example CURL:
   ```bash
-  curl -X POST http://localhost:8000/api/events/create/ \
+  curl -X POST http://localhost:8000/api/events/ \
   -H "Content-Type: application/json" \
-  -H "Authorization: Token Your_Token" \
+  -H "Authorization: Token YOUR_TOKEN" \
   -d '{
     "title": "New Event",
     "description": "Event Description",
@@ -132,7 +132,7 @@ You can use app as regular web app, or via API
 #### 4. Update an existing event
 - Requires authentication. Token should be provided in the header.
   ```
-  PUT /api/events/<event_id>/update
+  PUT /api/events/<event_id>/
   ```
   Request Body:
   ```json
@@ -146,9 +146,9 @@ You can use app as regular web app, or via API
 
 - Example CURL:
   ```bash
-  curl -X PUT http://localhost:8000/api/events/1/update \
+  curl -X PUT http://localhost:8000/api/events/1/ \
   -H "Content-Type: application/json" \
-  -H "Authorization: Token Your_Token" \
+  -H "Authorization: Token YOUR_TOKEN" \
   -d '{
     "title": "Updated Event Title",
     "description": "Updated Description",
@@ -162,13 +162,13 @@ You can use app as regular web app, or via API
 #### 5. Delete an event
 - Requires authentication. Token should be provided in the header.
   ```
-  DELETE /api/events/<event_id>/delete
+  DELETE /api/events/<event_id>/
   ```
 
 - Example CURL:
   ```bash
-  curl -X DELETE http://localhost:8000/api/events/1/delete \
-  -H "Authorization: Token Your_Token"
+  curl -X DELETE http://localhost:8000/api/events/1/ \
+  -H "Authorization: Token YOUR_TOKEN"
   ```
 
 ---

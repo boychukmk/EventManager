@@ -12,10 +12,7 @@ urlpatterns = [
     path('delete_event/<int:pk>/', views.delete_event, name='delete_event'),
     path('register_for_event/<int:pk>/', views.register_for_event, name='register_for_event'),
 
-    path('api/events', EventListCreateView.as_view(), name='event_list_create'),
+    path('api/events/', EventListCreateView.as_view(), name='event_list_create'),
     path('api/events/<int:pk>/', EventDetailView.as_view(), name='event_detail'),
-    path('api/events/create/', create_event_api, name='event_create_api'),
-    path('api/events/<int:pk>/delete', delete_event_api, name='delete_event_api'),
-    path('api/events/<int:pk>/update', update_event_api, name='update_event_api'),
 
 ]

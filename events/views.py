@@ -10,9 +10,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
-from rest_framework.decorators import permission_classes,  api_view
-from rest_framework.response import Response
-from rest_framework import generics, permissions, status
+from rest_framework import generics, permissions
 
 from EventManager import settings
 from .forms import UserRegistrationForm, EventForm
@@ -43,51 +41,6 @@ class EventDetailView(generics.RetrieveUpdateDestroyAPIView):
         if instance.organiser != self.request.user:
             raise PermissionDenied("You are not allowed to delete this event.")
         instance.delete()
-
-
-@api_view(['POST'])
-@permission_classes([permissions.IsAuthenticated])
-def create_event_api(request):
-    serializer = EventSerializer(data=request.data, context={'request': request})
-    if serializer.is_valid():
-        serializer.save(organiser=request.user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['PUT', 'PATCH'])
-@permission_classes([permissions.IsAuthenticated])
-def update_event_api(request, pk):
-    try:
-        event = Event.objects.get( pk=pk)
-        if event.organiser != request.user:
-            return Response({"detail":"You are not allowed to edit this event."},
-                           status=status.HTTP_403_FORBIDDEN)
-
-    except Event.DoesNotExist:
-        return Response({"detail": "Event not found."}, status=status.HTTP_404_NOT_FOUND)
-
-    serializer = EventSerializer(event, data=request.data, partial=True)
-    if serializer.is_valid():
-        serializer.save(organiser=request.user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['DELETE'])
-@permission_classes([permissions.IsAuthenticated])
-def delete_event_api(request, pk):
-    try:
-        event = Event.objects.get(pk=pk)
-
-        if event.organiser != request.user:
-            return Response({"detail": "You are not the organiser of this event."},
-                            status=status.HTTP_403_FORBIDDEN)
-    except Event.DoesNotExist:
-        return Response({"detail": "Event not found."}, status=status.HTTP_404_NOT_FOUND)
-
-    event.delete()
-    return Response({"detail": "Event deleted successfully ."}, status=status.HTTP_204_NO_CONTENT)
 
 
 def register_user(request):
